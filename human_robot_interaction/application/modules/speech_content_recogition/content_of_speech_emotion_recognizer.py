@@ -8,7 +8,7 @@ import json
 from transformers import (
     AutoTokenizer
 )
-from human_robot_interaction.application.speech_content_recogition.speech_content_model import \
+from human_robot_interaction.application.modules.speech_content_recogition.speech_content_model import \
     BertForMultiLabelClassification, MultiLabelPipeline
 
 tokenizer = AutoTokenizer.from_pretrained("monologg/bert-base-cased-goemotions-original")
@@ -101,7 +101,7 @@ class ContentOfSpeechEmotionRecognizer:
         shutil.move(temp_filename, audio_filename)
 
         audio_generator = (chunk for chunk in self.audio_chunks)
-        from human_robot_interaction.application.speech_content_recogition.google_speech_to_text import transcribe_streaming
+        from human_robot_interaction.application.modules.speech_content_recogition.google_speech_to_text import transcribe_streaming
         text = " ".join([t async for t in transcribe_streaming(audio_generator)])
 
         transcription_filename = os.path.join(buffer_folder, "text.txt")

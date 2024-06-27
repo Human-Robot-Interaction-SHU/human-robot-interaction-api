@@ -1,12 +1,6 @@
-import json
 from channels.generic.websocket import AsyncWebsocketConsumer
-import asyncio
-import wave
-import os
-import shutil
-from datetime import datetime
 
-from human_robot_interaction.application.speech_content_recogition.content_of_speech_emotion_reconizer import \
+from human_robot_interaction.application.modules.speech_content_recogition.content_of_speech_emotion_recognizer import \
     ContentOfSpeechEmotionRecognizer
 
 
