@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="855ee519-0288-414e-8633-0b1f94260e8d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/human_robot_interaction/application/modules/body_pose_recognition/body_pose_emotion_recognizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/human_robot_interaction/application/modules/face_analysis_recognition/face_analysis_emotion_recognizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/human_robot_interaction/application/modules/tone_of_voice_recognition/tone_of_voice_emotion_recognizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="855ee519-0288-414e-8633-0b1f94260e8d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +39,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "module/content-of-speech",
     "last_opened_file_path": "C:/Users/AbiolaSoft/Documents/GitHub/human-robot-interaction-api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -105,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1719020245982</updated>
       <workItem from="1719020250078" duration="22257000" />
-      <workItem from="1719527085653" duration="2155000" />
+      <workItem from="1719527085653" duration="2525000" />
     </task>
     <servers />
   </component>
