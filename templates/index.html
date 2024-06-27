@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real-Time Emotion Detection</title>
+    <style>
+        /* CSS for table styling */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Emotion Detection</h1>
+    <button id="recordButton">Start Recording</button>
+    <button id="stopButton" disabled>Stop Recording</button>
+    <div id="results">
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Transcription</th>
+                    <th>Emotions</th>
+                    <th>Scores</th>
+                </tr>
+            </thead>
+            <tbody id="resultsBody">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script>
+        const recordButton = document.getElementById('recordButton');
+        const stopButton = document.getElementById('stopButton');
+        const resultsBody = document.getElementById('resultsBody');
+        let audioContext;
+        let processor;
+        let input;
+        let stream;
+
+        const socket = new WebSocket('ws://' + window.location.host + '/ws/emotion_detection/');
+
+        recordButton.addEventListener('click', async () => {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                input = audioContext.createMediaStreamSource(stream);
+                processor = audioContext.createScriptProcessor(4096, 1, 1);
+
+                input.connect(processor);
+                processor.connect(audioContext.destination);
+
+                processor.onaudioprocess = (e) => {
+                    const audioData = e.inputBuffer.getChannelData(0);
+                    const int16Array = new Int16Array(audioData.length);
+                    for (let i = 0; i < audioData.length; i++) {
+                        int16Array[i] = audioData[i] * 0x7FFF; // Convert to 16-bit PCM
+                    }
+                    socket.send(int16Array.buffer);
+                };
+
+                recordButton.disabled = true;
+                stopButton.disabled = false;
+            } catch (error) {
+                console.error('Error accessing media devices.', error);
+            }
+        });
+
+        stopButton.addEventListener('click', () => {
+            if (processor && input) {
+                input.disconnect();
+                processor.disconnect();
+                audioContext.close().then(() => {
+                    stream.getTracks().forEach(track => track.stop());
+                    recordButton.disabled = false;
+                    stopButton.disabled = true;
+                });
+            }
+        });
+
+        socket.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            const transcription = data.transcription;
+            const emotions = data.emotion_detection.map(item => item.labels.join(', ')).join('<br>');
+            const scores = data.emotion_detection.map(item => item.scores.map(score => score.toFixed(2)).join(', ')).join('<br>');
+
+            const newRow = `<tr><td>${transcription}</td><td>${emotions}</td><td>${scores}</td></tr>`;
+            resultsBody.innerHTML += newRow;
+        };
+    </script>
+</body>
+</html>
