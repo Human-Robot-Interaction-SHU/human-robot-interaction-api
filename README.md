@@ -1,4 +1,4 @@
-# Commit Name Rules
+# Social-Cue-Analysis-for-Human-Robot-Interaction Project
 
 ## Commit Name Format
 
