@@ -1,4 +1,4 @@
-# Social-Cue-Analysis-for-Human-Robot-Interaction Project
+# Social Cue Analysis for Human Robot Interaction Project
 
 ## Commit Name Format
 
