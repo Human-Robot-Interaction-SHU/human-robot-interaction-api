@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="855ee519-0288-414e-8633-0b1f94260e8d" name="Changes" comment="" />
+    <list default="true" id="855ee519-0288-414e-8633-0b1f94260e8d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +42,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "module/content-of-speech",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/AbiolaSoft/Documents/GitHub/human-robot-interaction-api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
