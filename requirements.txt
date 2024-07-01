@@ -3,7 +3,7 @@ async-timeout==4.0.3
 attrs==23.2.0
 autobahn==23.1.2
 Automat==22.10.0
-backports.zoneinfo==0.2.1
+#backports.zoneinfo==0.2.1
 cachetools==5.3.3
 certifi==2024.6.2
 cffi==1.15.1
@@ -54,7 +54,7 @@ torch==1.13.1
 tqdm==4.66.4
 transformers==4.30.2
 Twisted==23.8.0
-twisted-iocpsupport==1.0.4
+#twisted-iocpsupport==1.0.4
 txaio==23.1.1
 typing_extensions==4.7.1
 urllib3==1.26.6
